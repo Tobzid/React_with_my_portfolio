@@ -1,18 +1,17 @@
 import "./About.css";
 import React, { useState, useEffect } from "react";
-import ImageOne from "../Photos/profileImage.jpg";
 import { CiLinkedin } from "react-icons/ci";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
-import profileImage from "../Photos/Tobzid.jpeg"
-// Fix for react-odometerjs global issue in Vite/Webpack
+import profileImage from "../Photos/Tobzid.jpeg";
+import Odometer from "react-odometerjs";
+import "odometer/themes/odometer-theme-default.css";
+
+// Polyfill global for react-odometerjs (placed AFTER all imports)
 if (typeof window !== "undefined") {
   window.global = window;
 }
-
-import Odometer from "react-odometerjs";
-import "odometer/themes/odometer-theme-default.css";
 
 function About({ onScrollClick }) {
   const [experience, setExperience] = useState(0);
@@ -20,7 +19,6 @@ function About({ onScrollClick }) {
   const [clients, setClients] = useState(0);
 
   useEffect(() => {
-    // Set target numbers after component mounts
     const timer = setTimeout(() => {
       setExperience(5);
       setProjects(150);
@@ -32,7 +30,6 @@ function About({ onScrollClick }) {
 
   return (
     <div>
-      {/* Fixed invalid multi-word ID */}
       <div className="AboutContDiv" id="about">
         <div className="aboutBox">
           {/* Left Column */}
@@ -61,7 +58,6 @@ function About({ onScrollClick }) {
               <button className="aboutBtnTwo">DOWNLOAD CV</button>
             </div>
 
-            {/* Fixed valid external URLs */}
             <div className="aboutsocialmedia">
               <a
                 href="https://instagram.com"

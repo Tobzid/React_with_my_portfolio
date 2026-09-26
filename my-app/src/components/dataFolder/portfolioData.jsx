@@ -2,12 +2,13 @@
 import { MdOutlineManageHistory, MdWeb, MdOutlineDatasetLinked } from "react-icons/md";
 import { IoBusiness, IoWifiSharp } from "react-icons/io5";
 import { GrUserExpert } from "react-icons/gr";
-import programManagerImg from "../photos/Programmanager.avif";
-import businessimage from "../photos/Businessanalyst.avif";
-import dataimage from "../photos/dataanalyst.avif";
-import webimage from "../photos/webdevelop.avif";
-import marketStrategistImg from "../photos/Marketstragist.avif";
-import organizationImg from "../photos/Organization.avif";
+// Change ../photos/ to ../Photos/ (or vice-versa to match your real folder)
+import programManagerImg from "../Photos/Programmanager.avif";
+import businessimage from "../Photos/Businessanalyst.avif";
+import dataimage from "../Photos/dataanalyst.avif";
+import webimage from "../Photos/webdevelop.avif";
+import marketStrategistImg from "../Photos/Marketstragist.avif";
+import organizationImg from "../Photos/Organization.avif";
 
 // src/components/dataFolder/portfolioData.jsx
 import { FaJs, FaReact, FaBootstrap, FaDatabase, FaFileExcel } from "react-icons/fa";
