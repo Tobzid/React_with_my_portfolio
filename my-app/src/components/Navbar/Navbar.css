@@ -1,0 +1,223 @@
+/* ==========================================================================
+   Prevent Horizontal Scroll / Dragging Page Side-to-Side
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Navbar Core Styles
+   ========================================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(14, 24, 33, 0.92); /* Deep Navy semi-transparent */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(44, 156, 196, 0.2); /* Ocean Blue border */
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.navContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Logo */
+.navLogo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.logoDot {
+  color: #f1d89f; /* Sand Gold accent dot */
+}
+
+/* Desktop Links */
+.navLinksDesktop {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.navLink:hover {
+  color: #2c9cc4; /* Ocean Blue hover */
+}
+
+/* ==========================================================================
+   Mobile Elements Default (Completely Hidden Until Toggled)
+   ========================================================================== */
+
+.mobileToggleBtn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.mobileToggleBtn:hover {
+  color: #2c9cc4;
+}
+
+/* Backdrop Overlay for Mobile Drawer */
+.navOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.navOverlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Mobile Slide-over Drawer (Right Side) */
+.mobileDrawer {
+  position: fixed;
+  top: 0;
+  right: 0; /* Anchored to right */
+  width: 280px;
+  height: 100vh;
+  background-color: #152230; /* Elevated Navy */
+  border-left: 1px solid rgba(44, 156, 196, 0.3);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1002;
+  visibility: hidden;
+  transform: translateX(100%); /* Hidden 100% off-screen to the right */
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s ease;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.mobileDrawer.open {
+  visibility: visible;
+  transform: translateX(0); /* Slides cleanly into view */
+}
+
+/* Drawer Close Header */
+.drawerHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: #f8fafc;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: #f1d89f; /* Sand Gold hover */
+  transform: scale(1.1);
+}
+
+.mobileNavLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobileNavLink {
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.mobileNavLink:hover {
+  color: #f1d89f; /* Sand Gold */
+  padding-left: 6px;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .navLinksDesktop {
+    display: none;
+  }
+
+  .mobileToggleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navContainer {
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .navContainer {
+    padding: 12px 16px;
+  }
+
+  .navLogo {
+    font-size: 1.3rem;
+  }
+
+  .mobileDrawer {
+    width: 85vw;
+    padding: 20px 16px;
+  }
+
+  .mobileNavLink {
+    font-size: 1rem;
+  }
+}

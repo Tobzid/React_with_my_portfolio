@@ -1,0 +1,141 @@
+/* Deep Navy, Ocean Blue & Sand Gold Theme */
+.skillsSection {
+  background-color: #0e1821; /* Deep navy base background */
+  width: 100%;
+} 
+
+.skillsDiv {
+  background-color: #0e1821;
+  padding: 80px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.skillsHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.skillsTag {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f1d89f; /* Sand Gold accent text */
+  background: rgba(241, 216, 159, 0.12); /* Subtle gold highlight pill */
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(241, 216, 159, 0.3);
+  margin-bottom: 16px;
+}
+
+.skillsTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #f8fafc; /* Crisp white title */
+  margin-bottom: 10px;
+}
+
+.skillsSubtitle {
+  font-size: 18px;
+  color: #94a3b8; /* Muted gray text */
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Category Card */
+.skillsCategoryCard {
+  background-color: #152230; /* Elevated navy container */
+  border: 1px solid rgba(44, 156, 196, 0.25); /* Subtle Ocean Blue border */
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.categoryTitle {
+  font-size: 25px;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  border-left: 3px solid #2c9cc4; /* Ocean Blue left accent bar */
+  padding-left: 12px;
+}
+
+/* Badges Grid */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.skillBadge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #0e1821; /* Slightly darker inner badge background */
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.skillBadge:hover {
+  transform: translateY(-4px);
+  border-color: #2c9cc4; /* Ocean Blue border on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(44, 156, 196, 0.25); /* Subtle blue glow */
+}
+
+.skillIcon {
+  font-size: 1.8rem;
+  color: #2c9cc4; /* Ocean Blue icon color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skillInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.skillName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.skillLevel {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+
+/*  Small Tablets & Large Phones (max-width: 650px) */
+@media (max-width: 650px) {
+
+}
+
+/* 4. Small Mobile Phones (max-width: 375px) */
+@media (max-width: 435px) {
+ .skillsSubtitle{
+  font-size: 20px;
+ }
+
+ .categoryTitle{
+  font-size: 26px;
+ }
+
+ .skillName{
+  font-size: 22px;
+ }
+
+ .skillLevel{
+  font-size: 20px;
+ }
+}

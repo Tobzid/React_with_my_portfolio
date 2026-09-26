@@ -1,0 +1,114 @@
+/* Add this at the top of index.css or App.css */
+html {
+  scroll-behavior: smooth;
+}
+
+footer {
+  background-color: #0f172a; /* Main dark background matching contact section */
+  color: #f8fafc;
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  border-top: 1px solid #334155; /* Subtle top border divider */
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > div {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/* Brand Title */
+footer h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #38bdf8; /* Brand accent cyan */
+  letter-spacing: 0.5px;
+  margin: 0 auto;
+}
+
+/* Navigation Links */
+.footconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.footconnect a {
+  color: #94a3b8; /* Soft muted gray */
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footconnect a:hover {
+  color: #38bdf8; /* Bright cyan highlight */
+  transform: translateY(-2px);
+}
+
+/* Social Media Icons */
+.footersocialmedia {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.footersocialmedia a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #152230;
+  border: 1px solid rgba(44, 156, 196, 0.3);
+  color: #f1d89f; /* Sand Gold */
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footersocialmedia a:hover {
+  color: #0f172a;
+  background-color: #38bdf8; /* Fill circle with cyan on hover */
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Copyright Text */
+footer p {
+  color: #64748b;
+  font-size: 18px;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+  width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  footer {
+    padding: 2.5rem 1rem 1.5rem 1rem;
+  }
+
+  .footconnect {
+    gap: 1.2rem;
+  }
+
+  .footersocialmedia {
+    gap: 1rem;
+  }
+}

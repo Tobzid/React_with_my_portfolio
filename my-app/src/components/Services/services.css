@@ -1,0 +1,268 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Container for the whole section */
+.servicesSection {
+  width: 100%;
+  background-color: #0e1821; /* Rich dark navy base */
+}
+
+.servicesSectionDiv {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #0e1821;
+  box-sizing: border-box;
+}
+
+.servicesHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.servicesHeader h2 {
+  font-size: 36px;
+  color: #f8fafc; /* Crisp white title for high visibility */
+  margin-bottom: 10px;
+}
+
+.servicesHeader p {
+  color: #f1d89f; /* Sand Gold accent for the section badge */
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 
+  THE GRID: This creates the 3-column layout.
+  '1fr' means each column takes up 1 equal fraction of the space.
+*/
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px; /* Spacing between cards */
+}
+
+/* Individual Card Styling */
+.serviceCard {
+  background-color: #152230; /* Elevated card background */
+  border: 1px solid rgba(44, 156, 196, 0.2); /* Subtle Ocean Blue border */
+  border-radius: 16px;
+  padding: 30px 25px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card Hover Effect */
+.serviceCard:hover {
+  transform: translateY(-8px); /* Lifts the card up */
+  border-color: #2c9cc4; /* Vibrant Ocean Blue border on hover */
+  background-color: #1a2a3c;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(44, 156, 196, 0.25); /* Premium blue glow */
+}
+
+/* Icon Container */
+.serviceIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: #2c9cc4; /* Ocean Blue Icon */
+  background: rgba(44, 156, 196, 0.12); /* Soft blue pill container */
+  padding: 16px;
+  border-radius: 14px;
+  margin: 0 auto 20px auto;
+  border: 1px solid rgba(44, 156, 196, 0.25);
+}
+
+/* 
+.serviceIconConDiv{
+    display: flex;
+    align-items: center;
+} */
+
+/* Text Formatting */
+.serviceName {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f8fafc; /* Crisp white title */
+  margin-bottom: 8px;
+}
+
+.serviceRole {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1d89f; /* Sand Gold highlight text */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.serviceContent {
+  font-size: 16px;
+  color: #94a3b8; /* Muted light slate grey for easy reading */
+  line-height: 1.6;
+}
+
+/* RESPONSIVENESS */
+/* Tablets: Drop down to 2 columns */
+@media (max-width: 992px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+   gap: 16px;
+  }
+}
+
+/* Mobile phones: Drop down to 1 column */
+@media (max-width: 650px) {
+  
+  .servicesSectionPortfolio {
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding: 40px 16px;
+  }
+  
+  
+  .servicesGrid {
+    /* grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; Prevents padding from causing off-center overflow */
+  /* margin: 0 auto;
+    justify-items: center; 
+  align-content: center; */
+
+  display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers cards horizontally */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+  .serviceCard {
+    /* padding: 25px 20px; */
+   /* width: 100%;
+  box-sizing: border-box; */
+  width: 100%;
+    max-width: 100%; /* Keeps card strictly inside screen bounds */
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* ==========================================================================
+   Media Queries (Append to the bottom of your CSS file)
+   ========================================================================== */
+
+/* 1. Large Desktops / Laptops (max-width: 1200px) */
+@media (max-width: 1200px) {
+  .servicesSectionDiv {
+    padding: 50px 24px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+/* 2. Tablets & Small Laptops (max-width: 992px) */
+@media (max-width: 992px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    gap: 20px;
+   
+  }
+
+  .servicesHeader h2 {
+    font-size: 40px;
+  }
+
+  .servicesHeader p {
+    font-size: 20px;
+  }
+}
+
+/* 3. Small Tablets & Large Phones (max-width: 650px) */
+@media (max-width: 650px) {
+  .servicesSectionDiv {
+    padding: 40px 16px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr; /* Stacks cards into 1 column */
+    gap: 16px;
+   
+  }
+
+  .servicesHeader {
+    margin-bottom: 30px;
+  }
+
+  .servicesHeader h2 {
+    font-size: 44px;
+  }
+
+  .servicesHeader p {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+  }
+
+  .serviceCard {
+    padding: 24px 20px;
+    text-align: center;
+  }
+}
+
+/* 4. iPhone 6 / Standard Mobile (max-width: 375px) */
+@media (max-width: 475px) {
+  .servicesSectionDiv {
+    padding: 30px 12px;
+  }
+
+  .servicesHeader h2 {
+    font-size: 48px;
+  }
+
+  .servicesHeader p {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr; /* Stacks cards into 1 column */
+    gap: 16px;
+   
+  }
+
+  .serviceCard {
+    padding: 20px 16px;
+  }
+
+  .serviceName {
+    font-size: 28px;
+  }
+
+  .serviceRole {
+    font-size: 19px;
+  }
+
+  .serviceContent {
+    font-size: 20px;
+  }
+
+  .serviceIcon {
+    font-size: 28px;
+    padding: 12px;
+    margin-bottom: 15px;
+  }
+}
