@@ -6,25 +6,40 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    'https://tobzidapplication.netlify.app', // Your live Netlify domain
+    'http://localhost:5173',                 // Local Vite dev server
+    'http://localhost:3000'                  // Alternative local port
+  ],
+  methods: ['POST', 'GET'],
+  credentials: true
+}));
+
 app.use(express.json());
 
-// Configure your email provider (Gmail, custom domain, etc.)
+// Configure email transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // or your SMTP host
+  service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER, // Your email address
-    pass: process.env.EMAIL_PASS, // Your email app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
+  // Basic sanity check to ensure fields aren't empty
+  if (!name || !email || !message) {
+    return res.status(400).json({ success: false, message: 'All fields are required.' });
+  }
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER, // Receives the email in YOUR inbox
-    replyTo: email,             // Hitting 'Reply' replies directly to the visitor
+    to: process.env.EMAIL_USER, 
+    replyTo: email, 
     subject: `New Portfolio Message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
   };
@@ -38,4 +53,6 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+// Dynamic port for host platforms + local 5000 fallback
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
