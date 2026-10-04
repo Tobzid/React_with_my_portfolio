@@ -4,7 +4,7 @@ import { IoMdCall } from "react-icons/io";
 import { useState } from "react";
 
 // Use live server URL in production, or localhost during development
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://tobzid-my-app.onrender.com';
 
 function Contacts() {
   const [message, setMessage] = useState('');
