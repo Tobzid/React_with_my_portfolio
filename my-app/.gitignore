@@ -2,3 +2,11 @@ EMAIL_USER=tobzid2013@gmail.com
 EMAIL_PASS=iechqxnqnjxnuxnh
 
 node_modules/
+
+
+# Local environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
