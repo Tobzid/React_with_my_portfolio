@@ -13,7 +13,8 @@ app.use(cors({
     'http://localhost:5173',                 // Local Vite dev server
     'http://localhost:3000'                  // Alternative local port
   ],
-  methods: ['POST', 'GET'],
+  methods: ['POST', 'GET', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
   credentials: true
 }));
 
