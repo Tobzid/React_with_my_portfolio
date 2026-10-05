@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors({
   origin: [
-    'https://tobzidapplication.netlify.app', // Your live Netlify domain
+    'https://tobzidapplication.netlify.app', // Live Netlify domain
     'http://localhost:5173',                 // Local Vite dev server
     'http://localhost:3000'                  // Alternative local port
   ],
@@ -19,6 +19,11 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Root endpoint for status checks
+app.get('/', (req, res) => {
+  res.send('Server is running and healthy!');
+});
 
 // Configure email transporter
 const transporter = nodemailer.createTransport({
@@ -32,7 +37,6 @@ const transporter = nodemailer.createTransport({
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Basic sanity check to ensure fields aren't empty
   if (!name || !email || !message) {
     return res.status(400).json({ success: false, message: 'All fields are required.' });
   }
@@ -54,6 +58,5 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Dynamic port for host platforms + local 5000 fallback
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
