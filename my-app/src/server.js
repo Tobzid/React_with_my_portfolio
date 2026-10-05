@@ -25,13 +25,24 @@ app.get('/', (req, res) => {
   res.send('Server is running and healthy!');
 });
 
-// Configure email transporter
+// Configure email transporter explicitly for Port 587 (TLS/STARTTLS) and IPv4
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+// });
+
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // Must be false for port 587 (uses STARTTLS)
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  family: 4 // Forces Node.js to use IPv4 instead of IPv6 on Render
 });
 
 app.post('/api/contact', async (req, res) => {
