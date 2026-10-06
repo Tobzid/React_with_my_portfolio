@@ -52,10 +52,13 @@ function About({ onScrollClick }) {
                     .getElementById("contacts")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-              >
+              > 
                 CONTACT ME
+              
               </button>
-              <button className="aboutBtnTwo">DOWNLOAD CV</button>
+
+              <a href="my-cv.pdf" download="my-cv.pdf">
+              <button className="aboutBtnTwo">DOWNLOAD CV</button> </a>
             </div>
 
             <div className="aboutsocialmedia">
