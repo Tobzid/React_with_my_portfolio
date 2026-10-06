@@ -2,6 +2,10 @@ import express from 'express';
 import nodemailer from 'nodemailer';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import dns from 'dns';
+
+// Force DNS resolution to prefer IPv4 globally
+dns.setDefaultResultOrder('ipv4first');
 
 dotenv.config();
 
@@ -9,9 +13,9 @@ const app = express();
 
 app.use(cors({
   origin: [
-    'https://tobzidapplication.netlify.app', // Live Netlify domain
-    'http://localhost:5173',                 // Local Vite dev server
-    'http://localhost:3000'                  // Alternative local port
+    'https://tobzidapplication.netlify.app',
+    'http://localhost:5173',
+    'http://localhost:3000'
   ],
   methods: ['POST', 'GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
@@ -20,29 +24,23 @@ app.use(cors({
 
 app.use(express.json());
 
-// Root endpoint for status checks
 app.get('/', (req, res) => {
   res.send('Server is running and healthy!');
 });
 
-// Configure email transporter explicitly for Port 587 (TLS/STARTTLS) and IPv4
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// });
-
+// Transporter configured with explicit IPv4 family and socket forcing
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
-  secure: false, // Must be false for port 587 (uses STARTTLS)
+  secure: false, // STARTTLS for port 587
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  family: 4 // Forces Node.js to use IPv4 instead of IPv6 on Render
+  family: 4, // Explicitly enforce IPv4 on connection
+  connectionTimeout: 10000, // Prevent hanging requests (10 seconds timeout)
+  greetingTimeout: 5000,
+  socketTimeout: 10000
 });
 
 app.post('/api/contact', async (req, res) => {
