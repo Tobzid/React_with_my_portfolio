@@ -57,7 +57,7 @@ function About({ onScrollClick }) {
               
               </button>
 
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="my-cv" target="_blank" rel="noopener noreferrer">
               <button className="aboutBtnTwo">DOWNLOAD CV</button> </a>
             </div>
 
