@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 import ReactGA from 'react-ga4';
 
 // Initialize with your copied Measurement ID
-ReactGA.initialize('G-XXXXXXXXXX');
+ReactGA.initialize('G-6RY9D79EDT');
 
 // Send a pageview hit
 ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
