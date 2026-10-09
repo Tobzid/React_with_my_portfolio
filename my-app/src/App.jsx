@@ -8,6 +8,17 @@ import Testimonials from "./components/Testimonies/Testimonies";
 import Contacts from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
+import ReactGA from 'react-ga4';
+
+// Initialize with your copied Measurement ID
+ReactGA.initialize('G-XXXXXXXXXX');
+
+// Send a pageview hit
+ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
+
+
+
+
 function App() {
 
 // 1. reference for the target section
